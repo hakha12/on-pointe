@@ -1,0 +1,106 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm4rcw7f4ht7l"]
+
+[ext_resource type="Script" path="res://level/title_script.gd" id="1_ryd54"]
+
+[node name="Title" type="Node"]
+script = ExtResource("1_ryd54")
+
+[node name="TitleMargin" type="MarginContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TitleMargin"]
+layout_mode = 2
+
+[node name="TitleText" type="Label" parent="TitleMargin/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "On Pointe"
+
+[node name="StartButton" type="Button" parent="TitleMargin/VBoxContainer"]
+custom_minimum_size = Vector2(691, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "Press to Start"
+alignment = 0
+
+[node name="MenuMargin" type="MarginContainer" parent="."]
+visible = false
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -119.0
+offset_right = 792.0
+offset_bottom = 120.0
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuMargin"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="MenuMargin/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Play"
+alignment = 0
+
+[node name="CreditButton" type="Button" parent="MenuMargin/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Credit"
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="MenuMargin/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Quit
+"
+alignment = 0
+
+[node name="LevelSelectionMargin" type="MarginContainer" parent="."]
+visible = false
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -119.0
+offset_right = 792.0
+offset_bottom = 120.0
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelectionMargin"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LevelSelectionMargin/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Select Level"
+
+[node name="LevelSelectionButton1" type="Button" parent="LevelSelectionMargin/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Level 1"
+alignment = 0
+
+[node name="LevelSelectionButton2" type="Button" parent="LevelSelectionMargin/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Level 2"
+alignment = 0
+
+[node name="BackButton" type="Button" parent="LevelSelectionMargin/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Back
+"
+alignment = 0
+
+[connection signal="pressed" from="TitleMargin/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MenuMargin/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="LevelSelectionMargin/VBoxContainer/LevelSelectionButton1" to="." method="_on_level_selection_button_1_pressed"]
+[connection signal="pressed" from="LevelSelectionMargin/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
