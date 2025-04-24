@@ -1,19 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpkh0ugtnvhcg"]
+[gd_scene load_steps=6 format=3 uid="uid://bpkh0ugtnvhcg"]
 
 [ext_resource type="Script" path="res://level/lvl_script.gd" id="1_j6i8l"]
 [ext_resource type="PackedScene" uid="uid://d0vnuvu4cneg5" path="res://player/player.tscn" id="1_wmj6j"]
 [ext_resource type="AudioStream" uid="uid://c7hebbfntm8lk" path="res://audio/bgm_lvl_01.wav" id="2_a8u1u"]
+[ext_resource type="PackedScene" uid="uid://b07kd867aey1x" path="res://audio/bgm.tscn" id="3_klias"]
 [ext_resource type="PackedScene" uid="uid://bb21y5f4ty731" path="res://ui/ui_pause.tscn" id="4_lyory"]
 
 [node name="Lvl01" type="Node" node_paths=PackedStringArray("bgm")]
 script = ExtResource("1_j6i8l")
-bgm = NodePath("Lvl01Bgm")
+bgm = NodePath("Bgm")
 
 [node name="Player" parent="." instance=ExtResource("1_wmj6j")]
 position = Vector2(960, 720)
 
-[node name="Lvl01Bgm" type="AudioStreamPlayer" parent="."]
+[node name="Bgm" parent="." instance=ExtResource("3_klias")]
 stream = ExtResource("2_a8u1u")
+bpm = 110
+measures = 4
 
 [node name="PauseUI" parent="." instance=ExtResource("4_lyory")]
 visible = false

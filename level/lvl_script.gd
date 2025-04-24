@@ -36,3 +36,7 @@ func _on_pause_button_pressed() -> void:
 	get_tree().paused = true
 	$PauseButton.hide()
 	$PauseUI.show()
+
+
+func _on_bgm_finished() -> void:
+	pass # Replace with function body.
